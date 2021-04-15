@@ -37,4 +37,24 @@ describe Game do
       game.attack
     end
   end
+
+  describe '#attacker' do
+    it 'p1 is initial attacker' do
+      expect(game.attacker).to eq game.player_one
+    end
+    it 'attacker changes after attack' do
+      game.attack
+      expect(game.attacker).to eq game.player_two
+    end
+  end
+
+  describe '#defender' do
+    it 'p2 is initial defender' do
+      expect(game.defender).to eq game.player_two
+    end
+    it 'defender changes after attack' do
+      game.attack
+      expect(game.defender).to eq game.player_one
+    end
+  end
 end

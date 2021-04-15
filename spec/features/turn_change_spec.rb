@@ -16,4 +16,11 @@ feature 'Changes turns after attack' do
     expect(page).to have_content('Kerri has 50HP')
     expect(page).not_to have_content('Kerri has 60HP')
   end
+
+  scenario "attacker in play page changes" do
+    sign_in_and_play
+    click_link('Attack')
+    click_link('OK')
+    expect(page).to have_content("Jason's turn")
+  end
 end

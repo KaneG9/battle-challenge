@@ -10,9 +10,17 @@ class Game
   end
 
   def attack
-    !@turn_player_one ? player = @player_one : player = @player_two
+    @turn_player_one ? player = @player_two : player = @player_one
     player.receive_damage
     change_turn
+  end
+
+  def attacker
+    @turn_player_one ? @player_one : @player_two
+  end
+
+  def defender
+    @turn_player_one ? @player_two : @player_one
   end
 
 private

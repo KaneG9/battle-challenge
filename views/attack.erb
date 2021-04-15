@@ -1,7 +1,4 @@
-<% if @game.turn_player_one %>
-  <h2><%= @game.player_two.name %> attacks <%= @game.player_one.name %></h2>
-<% else %>
-  <h2><%= @game.player_one.name %> attacks <%= @game.player_two.name %></h2>
-<% end %>
+
+<h2><%= @game.defender.name %> attacks <%= @game.attacker.name %></h2>
 
 <p><a href='/play'>OK</a></p>
