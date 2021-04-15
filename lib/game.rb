@@ -10,9 +10,7 @@ class Game
   end
 
   def attack
-    @turn_player_one ? player = @player_two : player = @player_one
-    player.receive_damage
-    change_turn
+    self.defender.receive_damage
   end
 
   def attacker
@@ -23,8 +21,7 @@ class Game
     @turn_player_one ? @player_two : @player_one
   end
 
-private
   def change_turn
-    @turn_player_one = !@turn_player_one
-  end
+      @turn_player_one = !@turn_player_one
+    end
 end

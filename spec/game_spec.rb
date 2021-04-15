@@ -26,13 +26,8 @@ describe Game do
       game.attack
     end
 
-    it "After attack it is no longer p1's turn" do
-      game.attack
-      expect(game.turn_player_one).to be false
-    end
-
     it "second attack player 1 receives damage" do
-      game.attack
+      game.change_turn
       expect(p1).to receive(:receive_damage) 
       game.attack
     end
@@ -43,7 +38,7 @@ describe Game do
       expect(game.attacker).to eq game.player_one
     end
     it 'attacker changes after attack' do
-      game.attack
+      game.change_turn
       expect(game.attacker).to eq game.player_two
     end
   end
@@ -53,8 +48,15 @@ describe Game do
       expect(game.defender).to eq game.player_two
     end
     it 'defender changes after attack' do
-      game.attack
+      game.change_turn
       expect(game.defender).to eq game.player_one
+    end
+  end
+
+  describe '#change_turn' do
+    it "After change_turn it is no longer p1's turn" do
+      game.change_turn
+      expect(game.turn_player_one).to be false
     end
   end
 end
