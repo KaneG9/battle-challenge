@@ -1,17 +1,14 @@
 require 'game'
 
 describe Game do
-  let(:p2) { double :p2 }
+  let(:p1) { double :player }
+  let(:p2) { double :player }
   let(:player_double) { double :player }
-  let(:game) { described_class.new('player_one', 'player_two', player_double) }
-
-  before do
-    allow(player_double).to receive(:new).and_return "Player created"
-  end
+  let(:game) { described_class.new(p1, p2) }
 
   describe '#initialize' do 
     it 'creates instances of the player class' do
-      expect(game.player_one).to eq "Player created"
+      expect(game.player_one).to eq p1
     end
   end
   
