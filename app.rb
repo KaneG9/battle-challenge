@@ -5,6 +5,8 @@ require './lib/game'
 
 
 class Battle < Sinatra::Base
+  before { @game = Game.load_game }
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -20,24 +22,21 @@ class Battle < Sinatra::Base
   end 
 
   get '/play' do
-    @game = Game.load_game
     erb :play
   end 
 
   get '/attack' do
-    @game = Game.load_game
     @game.attack
     redirect '/game_over' if @game.over?
     erb :attack
   end
 
   post '/change_turns' do
-    Game.load_game.change_turn
+    @game.change_turn
     redirect '/play'
   end
 
   get '/game_over' do
-    @game = Game.load_game
     erb :game_over
   end
 
