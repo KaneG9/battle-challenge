@@ -19,7 +19,8 @@ class Game
   end
 
   def attack
-    self.defender.receive_damage
+    damage = rand(10)
+    self.defender.receive_damage(damage)
   end
 
   def attacker

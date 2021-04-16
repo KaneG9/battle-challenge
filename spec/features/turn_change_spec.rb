@@ -9,6 +9,7 @@ feature 'Changes turns after attack' do
 
   scenario "P2 attacks P1 and P1's HP changes" do
     sign_in_and_play
+    allow_any_instance_of(Game).to receive(:rand).and_return(10)
     click_link('Attack')
     click_button('OK')
     click_link('Attack')

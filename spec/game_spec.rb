@@ -30,6 +30,11 @@ describe Game do
       expect(p1).to receive(:receive_damage) 
       game.attack
     end
+
+    it 'reduces the points of defender randomly upto 10' do
+      expect(p2).to receive(:receive_damage)
+      game.attack
+    end
   end
 
   describe '#attacker' do
