@@ -23,5 +23,5 @@ class Game
 
   def change_turn
       @turn_player_one = !@turn_player_one
-    end
+  end
 end

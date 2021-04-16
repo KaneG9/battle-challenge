@@ -1,9 +1,8 @@
 require 'game'
 
 describe Game do
-  let(:p1) { double(:player, :receive_damage => true )}
-  let(:p2) { double :player, :receive_damage => true }
-  let(:player_double) { double :player }
+  let(:p1) { double(:player, :receive_damage => true)}
+  let(:p2) { double(:player, :receive_damage => true) }
   let(:game) { described_class.new(p1, p2) }
 
   describe '#initialize' do 
