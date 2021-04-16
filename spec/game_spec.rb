@@ -62,7 +62,7 @@ describe Game do
   describe '#over' do
     it 'Once a player reaches 0HP game is over' do
       allow(p2).to receive(:hit_points).and_return 0
-      expect(game.over).to be true
+      expect(game.over?).to be true
     end
   end
 end

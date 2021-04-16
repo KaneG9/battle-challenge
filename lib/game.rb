@@ -2,11 +2,19 @@ require_relative 'player'
 
 class Game
   attr_reader :player_one, :player_two, :turn_player_one
-
+  @@game = nil
   def initialize(player_one, player_two)
     @player_one = player_one
     @player_two = player_two
     @turn_player_one = true
+  end
+
+  def save_game
+    @@game = self
+  end
+
+  def self.load_game
+    @@game
   end
 
   def attack
@@ -25,7 +33,7 @@ class Game
     @turn_player_one = !@turn_player_one
   end
 
-  def over 
+  def over? 
     self.defender.hit_points <= 0 
   end
 end
