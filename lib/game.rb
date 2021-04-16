@@ -22,6 +22,10 @@ class Game
   end
 
   def change_turn
-      @turn_player_one = !@turn_player_one
+    @turn_player_one = !@turn_player_one
+  end
+
+  def over 
+    self.defender.hit_points <= 0 
   end
 end
