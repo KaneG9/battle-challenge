@@ -2,19 +2,20 @@ require_relative 'player'
 
 class Game
   attr_reader :player_one, :player_two, :turn_player_one
-  @@game = nil
+  @game = nil
+  
   def initialize(player_one, player_two)
     @player_one = player_one
     @player_two = player_two
     @turn_player_one = true
   end
 
-  def save_game
-    @@game = self
+  def self.save_game(game)
+    @game = game
   end
 
   def self.load_game
-    @@game
+    @game
   end
 
   def attack
